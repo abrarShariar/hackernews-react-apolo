@@ -6,7 +6,7 @@
 
 * Query the first 10 links
 
-```
+```graphql
 query {
   feed (skip:0, first:10) {
   links {
@@ -23,7 +23,7 @@ query {
 
 * Create a new links
 
-```
+```graphql
 mutation {
   post(
     description: "Prisma turns your database into a GraphQL API2 😎",
@@ -38,4 +38,17 @@ mutation {
       }
     }
  }
+```
+
+
+* Query first 5 links
+
+```graphql
+query {
+  feed (skip: 0, first: 5) {
+    links {
+      url
+    }
+  }
+}
 ```
