@@ -1,8 +1,26 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import {AUTH_TOKEN } from '../constants';
+
+const SIGNUP_MUTATION = gql`
+  mutation SignupMutation($email: String!, $password: String!, $name: String!) {
+    signup (email: $email, password: $password, name: $name) {
+      token
+    }
+  }
+`
+
+const LOGIN_MUTATION = gql`
+  mutation LoginMutation(){
+    login(email: $email, password: $password) {
+      token
+    }
+  }
+`
+
+
 
 class Login extends React.Component {
-
   state = {
     login: true, // switch between Login and SignUp
     email: '',
